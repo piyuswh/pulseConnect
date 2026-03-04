@@ -1,19 +1,19 @@
 import React from "react";
 import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../pages/Login.css";
 
 export default function Login() {
+  // const navigate=useNavigate()
   const [formData,setformData]=useState({
     name:'',date:"",email:"",password:""
   })
   async function subHandler(e){
     e.preventDefault()
     try{
-     const res=await axios.post("http://localhost:3000/pulseConnect-register",formData)
-      alert("Registration Succesfully")
-      console.log(res);
-      
+     const res=await axios.post("http://localhost:8800/pulseConnect-register",formData,{withCredentials:true})
+      console.log(res)
     }
     catch(err){
       console.log("Something went wrong",err.message);
