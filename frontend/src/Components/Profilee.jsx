@@ -6,6 +6,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "../pages/Profile.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 // ── Step titles shown in the header ──────────
 const STEPS = ["Personal", "Medical", "Donation", "Location"];
@@ -27,6 +28,7 @@ const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 //  MAIN COMPONENT
 // ─────────────────────────────────────────────
 export default function ProfilePage() {
+  const navigate=useNavigate()
 
   // Which step are we on? (0 = Personal, 1 = Medical, 2 = Donation, 3 = Location)
   const [step, setStep] = useState(0);
@@ -94,8 +96,9 @@ console.log(response);
             <span className="success-icon">❤️</span>
             <h2>Profile Complete!</h2>
             <p>Thank you for registering. Your profile is under review and will be verified shortly.</p>
-            <button className="btn-next" onClick={() => { setSubmitted(false); setStep(0); }}>
-              Back to Profile
+            <button className="btn-next" onClick={() => { setSubmitted(false); setStep(0); navigate('/user-DashBoard') }}>
+         Go To 
+         DashBoard
             </button>
           </div>
         </div>

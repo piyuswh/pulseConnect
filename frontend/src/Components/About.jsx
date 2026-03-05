@@ -1,102 +1,188 @@
-import React from "react";
+// ================================
+//  AboutPage.jsx — LifeLink
+//  Clean UI, easy to understand
+// ================================
+
 import "../pages/About.css";
 
-export default function About() {
+// ── Nav links ──
+const NAV_LINKS = ["Home", "About", "Donors", "Contact"];
+
+// ── Our values section ──
+const VALUES = [
+  {
+    emoji: "❤️",
+    title: "Compassion First",
+    desc:  "Every donor and recipient is treated with care, dignity, and respect at every step.",
+  },
+  {
+    emoji: "🔒",
+    title: "Trust & Safety",
+    desc:  "All profiles are verified by our admin team before being activated on the platform.",
+  },
+  {
+    emoji: "⚡",
+    title: "Speed Matters",
+    desc:  "In emergencies, every second counts. We connect donors and recipients in real time.",
+  },
+];
+
+// ── Team members ──
+const TEAM = [
+  {
+    initial: "A",
+    name:    "Aryan Sharma",
+    role:    "Founder & Developer",
+    bio:     "Built LifeLink to solve the gap between donors and recipients across India.",
+  },
+  {
+    initial: "P",
+    name:    "Priya Verma",
+    role:    "Medical Advisor",
+    bio:     "Ensures all medical guidelines and safety protocols are followed on the platform.",
+  },
+  {
+    initial: "R",
+    name:    "Rahul Nair",
+    role:    "UI/UX Designer",
+    bio:     "Designed the clean, accessible interface that makes LifeLink easy to use for all.",
+  },
+];
+
+// ================================
+//  MAIN COMPONENT
+// ================================
+export default function AboutPage() {
   return (
-    <div className="about-page">
+    <div>
 
-      {/* Hero Section */}
-      <section className="about-hero">
-        <div className="about-hero-content">
-          <h1>About Pulse Connect</h1>
+      {/* ====== NAVBAR ====== */}
+      <nav className="navbar">
+        <div className="nav-logo">
+          <div className="nav-logo-box">🩸</div>
+          <span className="nav-logo-text">LifeLink</span>
+        </div>
+
+        <div className="nav-links">
+          {NAV_LINKS.map(link => (
+            <a key={link} href="#" className={`nav-link ${link === "About" ? "active" : ""}`}>
+              {link}
+            </a>
+          ))}
+        </div>
+
+        <div className="nav-btns">
+          <button className="btn-outline">Login</button>
+          <button className="btn-red">Register</button>
+        </div>
+      </nav>
+
+
+      {/* ====== RED HERO BANNER ====== */}
+      <div className="about-hero">
+        <div className="about-tag">Our Story</div>
+        <h1>About LifeLink 🩸</h1>
+        <p>
+          We started LifeLink with one mission — make it effortless
+          for people to donate blood and organs, and for those in need
+          to find a match quickly and safely.
+        </p>
+      </div>
+
+
+      {/* ====== PAGE CONTENT ====== */}
+      <div className="about-page">
+
+        {/* ── MISSION SECTION ── */}
+        <div className="mission">
+
+          {/* Left: Text */}
+          <div>
+            <div className="section-tag">Our Mission</div>
+            <h2 className="section-heading">Why LifeLink Exists</h2>
+            <p className="section-text">
+              Every year, thousands of people in India die because they
+              cannot find a matching blood or organ donor in time.
+              LifeLink was created to bridge that gap — connecting
+              willing donors with patients who urgently need help.
+              <br /><br />
+              We believe technology can save lives. Our platform makes
+              it simple to register as a donor, get verified, and be
+              notified when someone nearby needs you.
+            </p>
+          </div>
+
+          {/* Right: Red card */}
+          <div className="mission-card">
+            <h3>🎯 Our Goal</h3>
+            <p>
+              To build India's largest, most trusted network of blood
+              and organ donors — where every registered user can
+              potentially save a life with a single click.
+              <br /><br />
+              We aim to cover all major Indian cities and make same-day
+              donor matching a reality for hospitals and patients.
+            </p>
+          </div>
+
+        </div>
+
+
+        {/* ── OUR VALUES ── */}
+        <div className="values">
+          <div className="section-tag">What We Stand For</div>
+          <h2 className="section-heading">Our Core Values</h2>
+
+          {/* Loop through VALUES array */}
+          <div className="values-grid">
+            {VALUES.map(v => (
+              <div className="value-card" key={v.title}>
+                <div className="value-emoji">{v.emoji}</div>
+                <div className="value-title">{v.title}</div>
+                <div className="value-desc">{v.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+        {/* ── TEAM ── */}
+        <div className="team">
+          <div className="section-tag">The People</div>
+          <h2 className="section-heading">Meet Our Team</h2>
+
+          {/* Loop through TEAM array */}
+          <div className="team-grid">
+            {TEAM.map(member => (
+              <div className="team-card" key={member.name}>
+                {/* Avatar circle with first letter of name */}
+                <div className="team-avatar">{member.initial}</div>
+                <div className="team-name">{member.name}</div>
+                <div className="team-role">{member.role}</div>
+                <div className="team-bio">{member.bio}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+        {/* ── CTA STRIP ── */}
+        <div className="cta-strip">
+          <h2>Ready to Save a Life? 🩸</h2>
           <p>
-            We are building a bridge between generosity and hope — 
-            connecting donors with those in urgent need of blood and organs.
+            Join thousands of donors on LifeLink today.<br />
+            Registration takes less than 2 minutes.
           </p>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="mission-vision">
-        <div className="mv-box">
-          <h2>Our Mission</h2>
-          <p>
-            To create a secure and efficient platform that connects blood 
-            and organ donors with recipients, ensuring timely support and saving lives.
-          </p>
+          <button className="btn-cta">Register as a Donor</button>
         </div>
 
-        <div className="mv-box">
-          <h2>Our Vision</h2>
-          <p>
-            To become a globally trusted donor network where no life is lost 
-            due to the unavailability of blood or organs.
-          </p>
-        </div>
-      </section>
+      </div>
 
-      {/* Our Story */}
-      <section className="our-story">
-        <h2>Our Story</h2>
-        <p>
-          Pulse Connect was founded with a simple yet powerful belief — 
-          every second counts when a life is at stake. 
-          We saw the gap between willing donors and patients in need, 
-          and we decided to create a digital solution that bridges this gap.
-        </p>
-        <p>
-          Today, Pulse Connect stands as a reliable and secure platform, 
-          helping communities come together to save lives through technology, 
-          trust, and compassion.
-        </p>
-      </section>
 
-      {/* Core Values */}
-      <section className="core-values">
-        <h2>Our Core Values</h2>
-        <div className="values-container">
-
-          <div className="value-card">
-            <h3>Compassion</h3>
-            <p>We believe kindness and humanity are at the heart of saving lives.</p>
-          </div>
-
-          <div className="value-card">
-            <h3>Integrity</h3>
-            <p>Transparency and trust guide every connection we create.</p>
-          </div>
-
-          <div className="value-card">
-            <h3>Innovation</h3>
-            <p>We use smart technology to make donor matching faster and safer.</p>
-          </div>
-
-          <div className="value-card">
-            <h3>Community</h3>
-            <p>We build a supportive network that empowers people to help one another.</p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="team">
-        <h2>Our Dedicated Team</h2>
-        <p>
-          Our team consists of healthcare professionals, developers, 
-          and volunteers committed to creating a meaningful impact.
-        </p>
-      </section>
-
-      {/* Call To Action */}
-      <section className="about-cta">
-        <h2>Join Us in Saving Lives</h2>
-        <p>
-          Whether you're a donor, volunteer, or supporter — 
-          you can make a difference today.
-        </p>
-        <button className="about-btn">Become Part of Pulse Connect</button>
-      </section>
+      {/* ====== FOOTER ====== */}
+      <footer className="footer">
+        Made with <span>❤️</span> by LifeLink Team — Saving lives, one donation at a time.
+      </footer>
 
     </div>
   );

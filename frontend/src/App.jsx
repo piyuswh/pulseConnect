@@ -7,20 +7,33 @@ import About from "./Components/About";
 import Home from "./Components/Home";
 import Profile from "./Components/Profilee"
 import Dashboard from "./Components/Dashboard";
+import AdminDashboard from "./Components/AdminDashboard";
+import Protected from "./Components/Protected";
 
 export default function App() {
   return (
     <>
-<Dashboard/>
-  {/* <Navbar1 /> 
+{/* <Dashboard/> */}
+  <Navbar1 /> 
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Login />} />
         <Route path="/login" element={<Login1 />} />
         <Route path="/about" element={<About/>}/>
         <Route path='/home' element={<Home/>}/>
-        <Route path='/Complete-profile' element={<Profile/>}/>
-      </Routes>  */}
+        <Route path='/Complete-profile' element={<Protected>
+ <Profile/>
+        </Protected>
+         }/>
+        <Route path='/user-DashBoard' element={<Protected>
+          <Dashboard/>
+        </Protected>
+          }/>
+        <Route path='/admin-DashBoard' element={
+          <Protected></Protected>
+          }/>
+        
+      </Routes> 
     </>
   )
 }

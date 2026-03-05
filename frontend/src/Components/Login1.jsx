@@ -1,9 +1,11 @@
 import React from "react"
 import axios from "axios"
 import {useState} from 'react'
+import { useNavigate } from "react-router-dom"
 import "../pages/Login1.css"
 
 export default function Login1(){
+    const navigate=useNavigate()
     const [logData,setlogData]=useState({
         email:'',
         password:''
@@ -12,7 +14,11 @@ export default function Login1(){
         e.preventDefault()
         try{
         const res=await axios.post("http://localhost:8800/pulseConnect-Login",logData,{withCredentials:true})
-        console.log(res.data);
+       if(res.data.success&&res.data.admin){
+        return navigate('/admin-DashBoard')
+       }
+       if(res.data.success)
+        return navigate('/user-DashBoard')
         }catch(err){
             console.log(err.message);
        

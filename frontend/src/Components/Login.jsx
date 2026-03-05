@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../pages/Login.css";
 
 export default function Login() {
-  // const navigate=useNavigate()
+  const navigate=useNavigate()
   const [formData,setformData]=useState({
     name:'',date:"",email:"",password:""
   })
@@ -13,7 +13,10 @@ export default function Login() {
     e.preventDefault()
     try{
      const res=await axios.post("http://localhost:8800/pulseConnect-register",formData,{withCredentials:true})
-      console.log(res)
+      if(res.data.success){
+        return navigate('/complete-profile')
+      }
+      else return alert("Something Went Wrong")
     }
     catch(err){
       console.log("Something went wrong",err.message);
