@@ -15,9 +15,6 @@ router.post('/', async(req, res) => {
                 const token = jwt.sign({ id: admin._id, role: admin.role },
                     "ciagrette", { expiresIn: "7d" }
                 );
-
-
-
                 res.cookie("token", token, {
                     httpOnly: true,
                     secure: false,
@@ -61,6 +58,8 @@ router.post('/', async(req, res) => {
             message: "Login successful"
         });
     } catch (err) {
+        console.log(err);
+
         return res.status(500).json({
             success: false,
             message: "Something Went Wrong"

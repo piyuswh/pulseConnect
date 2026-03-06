@@ -30,7 +30,10 @@ export default function App() {
         </Protected>
           }/>
         <Route path='/admin-DashBoard' element={
-          <Protected></Protected>
+    <Protected>
+            <AdminDashboard/>
+    </Protected>
+       
           }/>
         
       </Routes> 

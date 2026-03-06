@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router();
 const jwt = require('jsonwebtoken')
-router.get('/verify-user', (req, res) => {
+router.get('/', (req, res) => {
     let token = req.cookies.token
     if (!token)
         return res.status(401).json({ success: false })

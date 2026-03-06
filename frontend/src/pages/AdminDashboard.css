@@ -1,510 +1,117 @@
-/* ================================
-   AdminDashboard.css — LifeLink
-   Dark Charcoal + Red Admin Theme
-================================ */
+/* Google Font */
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600&display=swap');
-:root {
-    --bg: #141414;
-    --surface: #1c1c1c;
-    --surface2: #242424;
-    --border: #2e2e2e;
-    --red: #e63946;
-    --red-faint: rgba(230, 57, 70, 0.10);
-    --red-border: rgba(230, 57, 70, 0.25);
-    --text: #f0f0f0;
-    --text-mid: #888888;
-    --text-dim: #444444;
-    --green: #22c55e;
-    --yellow: #f59e0b;
-    --radius: 12px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 body {
-    background: var(--bg);
     font-family: 'Poppins', sans-serif;
-    color: var(--text);
-}
-
-
-/* ================================
-   LAYOUT
-================================ */
-
-.layout {
-    display: flex;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     min-height: 100vh;
 }
 
 
-/* ================================
-   SLIM SIDEBAR (same as user dash)
-================================ */
+/* container */
 
-.sidebar {
-    width: 64px;
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    transition: width 0.25s ease;
-    overflow: hidden;
-    flex-shrink: 0;
-    z-index: 50;
-}
-
-.sidebar:hover {
-    width: 200px;
-}
-
-.sidebar-logo {
-    width: 38px;
-    height: 38px;
-    background: var(--red);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-    margin-bottom: 28px;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 11px 13px;
-    border: none;
-    background: transparent;
-    color: var(--text-mid);
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.2s;
-    border-left: 2px solid transparent;
-}
-
-.nav-item:hover {
-    background: var(--surface2);
-    color: var(--text);
-}
-
-.nav-item.active {
-    color: var(--red);
-    background: var(--red-faint);
-    border-left: 2px solid var(--red);
-    font-weight: 600;
-}
-
-.nav-icon {
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-.nav-bottom {
-    margin-top: auto;
-    width: 100%;
-    border-top: 1px solid var(--border);
-    padding-top: 12px;
+.admin-container {
+    padding: 40px;
+    text-align: center;
 }
 
 
-/* ================================
-   RIGHT SIDE
-================================ */
+/* title */
 
-.right-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-
-/* ================================
-   TOP BAR
-================================ */
-
-.topbar {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    height: 58px;
-    padding: 0 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-}
-
-.topbar-left h1 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.topbar-left p {
-    font-size: 12px;
-    color: var(--text-mid);
-}
-
-.topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-
-/* Admin badge in topbar */
-
-.admin-badge {
-    background: var(--red-faint);
-    border: 1px solid var(--red-border);
-    color: var(--red);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-}
-
-.online-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--green);
-}
-
-.avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--red);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
+.admin-title {
+    font-size: 42px;
     color: white;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.admin-subtitle {
+    color: #cfd9df;
+    margin-bottom: 40px;
 }
 
 
-/* ================================
-   MAIN CONTENT
-================================ */
+/* grid */
 
-.content {
-    flex: 1;
-    padding: 28px;
-    overflow-y: auto;
-}
-
-
-/* ================================
-   STAT CARDS
-================================ */
-
-.stats {
+.donor-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
 }
 
-.stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    transition: border-color 0.2s, transform 0.2s;
+
+/* donor card */
+
+.donor-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
-.stat-card:hover {
-    border-color: var(--red-border);
-    transform: translateY(-2px);
+.donor-card:hover {
+    transform: translateY(-8px) scale(1.02);
 }
 
-.stat-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
+
+/* blood badge */
+
+.blood-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #ff4b5c;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-}
-
-.stat-number {
-    font-family: 'Nunito', sans-serif;
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 2px;
-}
-
-.stat-label {
-    font-size: 12px;
-    color: var(--text-mid);
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 
-/* ================================
-   SECTION CARD
-================================ */
+/* buttons */
 
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 22px;
-    margin-bottom: 18px;
-}
-
-.card-header {
+.btn-group {
+    margin-top: 20px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
+    justify-content: center;
+    gap: 15px;
 }
 
-.card-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-}
-
-.card-count {
-    font-size: 12px;
-    color: var(--text-mid);
-    background: var(--surface2);
-    padding: 3px 10px;
-    border-radius: 20px;
-}
-
-
-/* ================================
-   FILTER BUTTONS
-================================ */
-
-.filters {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.filter-btn {
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-mid);
-}
-
-.filter-btn:hover {
-    color: var(--text);
-    border-color: #444;
-}
-
-.filter-btn.active {
-    background: var(--red-faint);
-    border-color: var(--red-border);
-    color: var(--red);
-}
-
-
-/* ================================
-   USER TABLE
-================================ */
-
-
-/* Column headings */
-
-.table-head {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 130px;
-    padding: 8px 10px;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 4px;
-}
-
-
-/* One user row */
-
-.user-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 130px;
-    align-items: center;
-    padding: 10px;
+.verify-btn {
+    background: linear-gradient(45deg, #00c853, #69f0ae);
+    border: none;
+    padding: 10px 18px;
     border-radius: 8px;
-    margin-bottom: 3px;
-    transition: background 0.2s;
-}
-
-.user-row:hover {
-    background: var(--surface2);
-}
-
-.user-name {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-
-.user-email {
-    font-size: 11px;
-    color: var(--text-mid);
-}
-
-
-/* Blood type pill */
-
-.blood-pill {
-    display: inline-block;
-    background: var(--red-faint);
-    border: 1px solid var(--red-border);
-    color: var(--red);
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 20px;
-}
-
-.role-text {
-    font-size: 12px;
-    color: var(--text-mid);
-    text-transform: capitalize;
-}
-
-
-/* Status badge */
-
-.status {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 20px;
-}
-
-.status.pending {
-    background: rgba(245, 158, 11, 0.12);
-    color: var(--yellow);
-}
-
-.status.verified {
-    background: rgba(34, 197, 94, 0.12);
-    color: var(--green);
-}
-
-.status.rejected {
-    background: rgba(230, 57, 70, 0.12);
-    color: var(--red);
-}
-
-
-/* Verify / Reject buttons */
-
-.action-btns {
-    display: flex;
-    gap: 6px;
-}
-
-.btn-verify {
-    padding: 4px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    background: rgba(34, 197, 94, 0.08);
-    color: var(--green);
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
+    color: white;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: 0.3s;
 }
 
-.btn-verify:hover {
-    background: rgba(34, 197, 94, 0.18);
+.verify-btn:hover {
+    transform: scale(1.1);
 }
 
-.btn-reject {
-    padding: 4px 10px;
-    border-radius: 6px;
-    border: 1px solid var(--red-border);
-    background: var(--red-faint);
-    color: var(--red);
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
+.reject-btn {
+    background: linear-gradient(45deg, #ff1744, #ff8a80);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: white;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: 0.3s;
 }
 
-.btn-reject:hover {
-    background: rgba(230, 57, 70, 0.2);
-}
-
-
-/* ================================
-   ACTIVITY LOG
-================================ */
-
-.activity-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 11px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.activity-item:last-child {
-    border-bottom: none;
-}
-
-.activity-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 4px;
-}
-
-.activity-text {
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.activity-time {
-    font-size: 11px;
-    color: var(--text-mid);
-    margin-top: 2px;
+.reject-btn:hover {
+    transform: scale(1.1);
 }

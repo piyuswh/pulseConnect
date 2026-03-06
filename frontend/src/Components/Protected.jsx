@@ -3,7 +3,7 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 export default function Protected({children}){
-    const [auth,setAuth]=useState(false)
+    const [auth,setAuth]=useState(null)
     useEffect(()=>{
 axios.get('http://localhost:8800/verify-user',{withCredentials:true})
 .then(()=>setAuth(true))
