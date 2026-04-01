@@ -1,17 +1,11 @@
-// =============================================
-//  ProfilePage.jsx  —  Organ & Blood Donor App
-//  Easy to read, separated CSS file
-// =============================================
-
 import { useState } from "react";
 import axios from "axios";
 import "../pages/Profile.css";
 import { Navigate, useNavigate } from "react-router-dom";
 
-// ── Step titles shown in the header ──────────
+
 const STEPS = ["Personal", "Medical", "Donation", "Location"];
 
-// ── Organ options ─────────────────────────────
 const ORGANS = [
   { name: "Kidney",   emoji: "🫘" },
   { name: "Liver",    emoji: "🫁" },
@@ -21,22 +15,15 @@ const ORGANS = [
   { name: "Eyes",     emoji: "👁️" },
 ];
 
-// ── Blood group options ───────────────────────
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
-// ─────────────────────────────────────────────
-//  MAIN COMPONENT
-// ─────────────────────────────────────────────
 export default function ProfilePage() {
   const navigate=useNavigate()
 
-  // Which step are we on? (0 = Personal, 1 = Medical, 2 = Donation, 3 = Location)
   const [step, setStep] = useState(0);
 
-  // Is the form fully submitted?
   const [submitted, setSubmitted] = useState(false);
 
-  // All form data lives in ONE object
   const [form, setForm] = useState({
     phone:                       "",
     age:                         "",
@@ -47,7 +34,7 @@ export default function ProfilePage() {
     lastDonationDate:            "",
     isAvailableForBloodDonation: true,
     isOrganDonor:                false,
-    organsDonating:              [],   // array of selected organs
+    organsDonating:              [],
     state:                       "",
     city:                        "",
     pincode:                     "",
@@ -55,8 +42,7 @@ export default function ProfilePage() {
     emergencyContact:            "",
   });
 
-  // ── Helper: update a single field ─────────────
-  // Example: update("phone", "9876543210")
+
   function update(fieldName, value) {
     setForm({ ...form, [fieldName]: value });
   }
@@ -113,7 +99,6 @@ console.log(response);
     <div className="profile-page">
       <div className="profile-card">
 
-        {/* ── TOP RED HEADER ── */}
         <div className="card-header">
           <div className="logo">🩸 pulseConnect</div>
           <h2>Complete Your Profile</h2>
@@ -131,7 +116,6 @@ console.log(response);
           </div>
         </div>
 
-        {/* ── FORM BODY ── */}
         <div className="card-body">
           <div className="step-label">
             Step {step + 1} / {STEPS.length} — {STEPS[step]}
@@ -343,10 +327,8 @@ console.log(response);
             </div>
           )}
 
-          {/* ── NAVIGATION BUTTONS ── */}
           <div className="btn-row">
 
-            {/* Show Back button only after step 0 */}
             {step > 0 && (
               <button className="btn-back" onClick={() => setStep(step - 1)}>
                 ← Back
@@ -369,10 +351,7 @@ console.log(response);
 
           </div>
         </div>
-        {/* end card-body */}
-
       </div>
-      {/* end profile-card */}
     </div>
   );
 }

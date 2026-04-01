@@ -34,7 +34,6 @@ const userSchema = new mongoose.Schema({
         default: "donor"
     },
 
-    // 🩸 Blood Details
     bloodGroup: {
         type: String,
         enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
@@ -58,12 +57,10 @@ const userSchema = new mongoose.Schema({
         enum: ["Kidney", "Liver", "Heart", "Lungs", "Pancreas", "Eyes"]
     }],
 
-    // 📍 Location
     state: String,
     city: String,
     pincode: String,
 
-    // 🧠 Medical Info
     age: {
         type: Number,
         min: 18

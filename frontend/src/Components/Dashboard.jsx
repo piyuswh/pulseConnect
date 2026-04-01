@@ -1,21 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../pages/Dashboard.css";
 
-// ==============================
-//   YOUR API URL — change this
-// ==============================
 const API_URL = "http://localhost:8800";
 
-// ==============================
-//   Fetch all users
-// ==============================
 async function getUsers() {
   const res = await axios.get(`${API_URL}/users/verified-users`);
   const data = await res.data.users;
   return data.map((u) => ({
     id:    u._id || u.id,
-    name:  u.name,
+    name:  u.fullName || u.name,
     email: u.email,
     role:  u.role || "user",   // "user" or "donor"
     type:  u.donorType || null, // "blood" | "organ" | "both"  (only for donors)
@@ -23,9 +18,6 @@ async function getUsers() {
   }));
 }
 
-// ==============================
-//   Helpers
-// ==============================
 const COLORS = ["#e8433a", "#4f8ef7", "#3ecf6e", "#f59e0b", "#9b5cf6"];
 
 function initials(name = "") {
@@ -36,10 +28,8 @@ function avatarColor(id = "") {
   return COLORS[String(id).charCodeAt(0) % COLORS.length];
 }
 
-// ==============================
-//   DASHBOARD
-// ==============================
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [users,   setUsers]   = useState([]);
   const [loading, setLoading] = useState(true);
   const [error,   setError]   = useState(null);
@@ -68,7 +58,6 @@ export default function Dashboard() {
     setTimeout(() => setToasts((p) => p.filter((t) => t.id !== id)), 3000);
   }
 
-  // Filter by tab and search
   const allUsers  = users.filter((u) => u.role !== "donor");
   const allDonors = users.filter((u) => u.role === "donor");
 
@@ -84,7 +73,7 @@ export default function Dashboard() {
       <aside className="sidebar">
         <div className="brand">
           <div className="brand-icon">🩸</div>
-          LifeLink
+          PulseConnect
         </div>
 
         <button className={`nav-btn ${tab === "users"  ? "active" : ""}`} onClick={() => setTab("users")}>
@@ -98,7 +87,6 @@ export default function Dashboard() {
       {/* ── MAIN ── */}
       <div className="main">
 
-        {/* TOPBAR */}
         <div className="topbar">
           <h1>{tab === "users" ? "Users" : "Donors"}</h1>
           <input
@@ -110,10 +98,8 @@ export default function Dashboard() {
           <button className="refresh-btn" onClick={load}>↻ Refresh</button>
         </div>
 
-        {/* CONTENT */}
         <div className="content">
 
-          {/* STAT CARDS */}
           <div className="cards">
             <div className="card">
               <div className="card-label">Total Users</div>
@@ -125,7 +111,6 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* TABLE */}
           <div className="table-box">
             <div className="table-box-header">
               <span>{tab === "users" ? "All Users" : "All Donors"}</span>
@@ -146,13 +131,13 @@ export default function Dashboard() {
                       <th>Email</th>
                       {tab === "donors" && <th>Donor Type</th>}
                       {tab === "donors" && <th>Blood Group</th>}
+                      <th>Chat</th>
                     </tr>
                   </thead>
                   <tbody>
                     {list.map((user) => (
                       <tr key={user.id}>
 
-                        {/* Name */}
                         <td>
                           <div className="user-cell">
                             <div className="avatar" style={{ background: avatarColor(user.id) }}>
@@ -164,10 +149,8 @@ export default function Dashboard() {
                           </div>
                         </td>
 
-                        {/* Email */}
                         <td style={{ color: "#6b7080", fontSize: 13 }}>{user.email}</td>
 
-                        {/* Donor-only columns */}
                         {tab === "donors" && (
                           <td>
                             <span className={`type-badge ${user.type || "blood"}`}>
@@ -178,6 +161,24 @@ export default function Dashboard() {
                         {tab === "donors" && (
                           <td style={{ fontWeight: 600 }}>{user.blood}</td>
                         )}
+
+                        <td>
+                          <button
+                            style={{
+                              padding: '6px 14px',
+                              border: 'none',
+                              borderRadius: '8px',
+                              background: 'linear-gradient(135deg, #dc2626, #b91c1c)',
+                              color: '#fff',
+                              cursor: 'pointer',
+                              fontSize: '13px',
+                              fontWeight: 600
+                            }}
+                            onClick={() => navigate(`/chat?userId=${user.id}`)}
+                          >
+                            💬 Chat
+                          </button>
+                        </td>
 
                       </tr>
                     ))}
@@ -190,7 +191,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* TOASTS */}
       <div className="toast-wrap">
         {toasts.map((t) => (
           <div key={t.id} className={`toast ${t.type}`}>{t.msg}</div>

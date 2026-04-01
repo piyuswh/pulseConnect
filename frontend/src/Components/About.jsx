@@ -1,14 +1,7 @@
-// ================================
-//  AboutPage.jsx — LifeLink
-//  Clean UI, easy to understand
-// ================================
-
 import "../pages/About.css";
 
-// ── Nav links ──
-const NAV_LINKS = ["Home", "About", "Donors", "Contact"];
 
-// ── Our values section ──
+
 const VALUES = [
   {
     emoji: "❤️",
@@ -27,13 +20,12 @@ const VALUES = [
   },
 ];
 
-// ── Team members ──
 const TEAM = [
   {
     initial: "A",
     name:    "Aryan Sharma",
     role:    "Founder & Developer",
-    bio:     "Built LifeLink to solve the gap between donors and recipients across India.",
+    bio:     "Built PulseConnect to solve the gap between donors and recipients across India.",
   },
   {
     initial: "P",
@@ -45,65 +37,37 @@ const TEAM = [
     initial: "R",
     name:    "Rahul Nair",
     role:    "UI/UX Designer",
-    bio:     "Designed the clean, accessible interface that makes LifeLink easy to use for all.",
+    bio:     "Designed the clean, accessible interface that makes PulseConnect easy to use for all.",
   },
 ];
 
-// ================================
-//  MAIN COMPONENT
-// ================================
 export default function AboutPage() {
   return (
     <div>
 
-      {/* ====== NAVBAR ====== */}
-      <nav className="navbar">
-        <div className="nav-logo">
-          <div className="nav-logo-box">🩸</div>
-          <span className="nav-logo-text">LifeLink</span>
-        </div>
 
-        <div className="nav-links">
-          {NAV_LINKS.map(link => (
-            <a key={link} href="#" className={`nav-link ${link === "About" ? "active" : ""}`}>
-              {link}
-            </a>
-          ))}
-        </div>
-
-        <div className="nav-btns">
-          <button className="btn-outline">Login</button>
-          <button className="btn-red">Register</button>
-        </div>
-      </nav>
-
-
-      {/* ====== RED HERO BANNER ====== */}
       <div className="about-hero">
         <div className="about-tag">Our Story</div>
-        <h1>About LifeLink 🩸</h1>
+        <h1>About PulseConnect 🩸</h1>
         <p>
-          We started LifeLink with one mission — make it effortless
+          We started PulseConnect with one mission — make it effortless
           for people to donate blood and organs, and for those in need
           to find a match quickly and safely.
         </p>
       </div>
 
 
-      {/* ====== PAGE CONTENT ====== */}
       <div className="about-page">
 
-        {/* ── MISSION SECTION ── */}
         <div className="mission">
 
-          {/* Left: Text */}
           <div>
             <div className="section-tag">Our Mission</div>
-            <h2 className="section-heading">Why LifeLink Exists</h2>
+            <h2 className="section-heading">Why PulseConnect Exists</h2>
             <p className="section-text">
               Every year, thousands of people in India die because they
               cannot find a matching blood or organ donor in time.
-              LifeLink was created to bridge that gap — connecting
+              PulseConnect was created to bridge that gap — connecting
               willing donors with patients who urgently need help.
               <br /><br />
               We believe technology can save lives. Our platform makes
@@ -112,7 +76,6 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Right: Red card */}
           <div className="mission-card">
             <h3>🎯 Our Goal</h3>
             <p>
@@ -128,12 +91,10 @@ export default function AboutPage() {
         </div>
 
 
-        {/* ── OUR VALUES ── */}
         <div className="values">
           <div className="section-tag">What We Stand For</div>
           <h2 className="section-heading">Our Core Values</h2>
 
-          {/* Loop through VALUES array */}
           <div className="values-grid">
             {VALUES.map(v => (
               <div className="value-card" key={v.title}>
@@ -146,17 +107,14 @@ export default function AboutPage() {
         </div>
 
 
-        {/* ── TEAM ── */}
         <div className="team">
           <div className="section-tag">The People</div>
           <h2 className="section-heading">Meet Our Team</h2>
 
-          {/* Loop through TEAM array */}
           <div className="team-grid">
             {TEAM.map(member => (
               <div className="team-card" key={member.name}>
-                {/* Avatar circle with first letter of name */}
-                <div className="team-avatar">{member.initial}</div>
+              <div className="team-avatar">{member.initial}</div>
                 <div className="team-name">{member.name}</div>
                 <div className="team-role">{member.role}</div>
                 <div className="team-bio">{member.bio}</div>
@@ -166,11 +124,10 @@ export default function AboutPage() {
         </div>
 
 
-        {/* ── CTA STRIP ── */}
         <div className="cta-strip">
           <h2>Ready to Save a Life? 🩸</h2>
           <p>
-            Join thousands of donors on LifeLink today.<br />
+            Join thousands of donors on PulseConnect today.<br />
             Registration takes less than 2 minutes.
           </p>
           <button className="btn-cta">Register as a Donor</button>
@@ -179,9 +136,8 @@ export default function AboutPage() {
       </div>
 
 
-      {/* ====== FOOTER ====== */}
       <footer className="footer">
-        Made with <span>❤️</span> by LifeLink Team — Saving lives, one donation at a time.
+        Made with <span>❤️</span> by PulseConnect Team — Saving lives, one donation at a time.
       </footer>
 
     </div>

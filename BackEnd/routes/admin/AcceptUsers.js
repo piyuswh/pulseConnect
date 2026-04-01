@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router();
 const userModel = require('../../models/userModel')
 router.put('/:id', async(req, res) => {
-    console.log("id router");
-
     try {
         await userModel.findByIdAndUpdate(req.params.id, {
             isVerified: true

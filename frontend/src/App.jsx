@@ -9,12 +9,12 @@ import Profile from "./Components/Profilee"
 import Dashboard from "./Components/Dashboard";
 import AdminDashboard from "./Components/AdminDashboard";
 import Protected from "./Components/Protected";
+import ChatPage from "./Components/ChatPage";
 
 export default function App() {
   return (
     <>
-{/* <Dashboard/> */}
-  <Navbar1 /> 
+      <Navbar1 /> 
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Login />} />
@@ -22,9 +22,9 @@ export default function App() {
         <Route path="/about" element={<About/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/Complete-profile' element={<Protected>
- <Profile/>
+          <Profile/>
         </Protected>
-         }/>
+        }/>
         <Route path='/user-DashBoard' element={<Protected>
           <Dashboard/>
         </Protected>
@@ -35,6 +35,11 @@ export default function App() {
     </Protected>
        
           }/>
+        <Route path='/chat' element={
+          <Protected>
+            <ChatPage />
+          </Protected>
+        } />
         
       </Routes> 
     </>
