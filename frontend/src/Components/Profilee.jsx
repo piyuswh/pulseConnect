@@ -38,16 +38,41 @@ export default function ProfilePage() {
     state:                       "",
     city:                        "",
     pincode:                     "",
+    location: { type: 'Point', coordinates: [0, 0] },
     medicalConditions:           "",
     emergencyContact:            "",
   });
+
+  const [geoStatus, setGeoStatus] = useState("idle"); 
+
+  function detectLocation() {
+    if (!navigator.geolocation) {
+      setGeoStatus("error");
+      return;
+    }
+    setGeoStatus("detecting");
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setForm(prev => ({
+          ...prev,
+          location: {
+            type: 'Point',
+            coordinates: [pos.coords.longitude, pos.coords.latitude]
+          }
+        }));
+        setGeoStatus("success");
+      },
+      () => setGeoStatus("error"),
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
+  }
 
 
   function update(fieldName, value) {
     setForm({ ...form, [fieldName]: value });
   }
 
-  // ── Helper: toggle an organ in the array ──────
+  
   function toggleOrgan(organName) {
     const already = form.organsDonating.includes(organName);
     if (already) {
@@ -57,7 +82,7 @@ export default function ProfilePage() {
     }
   }
 
-  // ── Submit to backend ──────────────────────────
+  
   async function handleSubmit() {
     try {
       const response=await axios.post("http://localhost:8800/pulseConnect-userDetails",form,{withCredentials:true})
@@ -92,9 +117,9 @@ console.log(response);
     );
   }
 
-  // ─────────────────────────────────────────────
-  //  MAIN RENDER
-  // ─────────────────────────────────────────────
+  
+  
+  
   return (
     <div className="profile-page">
       <div className="profile-card">
@@ -104,7 +129,7 @@ console.log(response);
           <h2>Complete Your Profile</h2>
           <p>Step {step + 1} of {STEPS.length} — {STEPS[step]}</p>
 
-          {/* Step dots (little bars showing progress) */}
+          {}
           <div className="step-dots">
             {STEPS.map((_, i) => (
               <div
@@ -121,7 +146,7 @@ console.log(response);
             Step {step + 1} / {STEPS.length} — {STEPS[step]}
           </div>
 
-          {/* ── STEP 0: Personal ── */}
+          {}
           {step === 0 && (
             <div>
               <div className="two-col">
@@ -186,7 +211,7 @@ console.log(response);
             </div>
           )}
 
-          {/* ── STEP 1: Medical ── */}
+          {}
           {step === 1 && (
             <div>
               <div className="field">
@@ -242,7 +267,7 @@ console.log(response);
             </div>
           )}
 
-          {/* ── STEP 2: Organ Donation ── */}
+          {}
           {step === 2 && (
             <div>
               <div className="field">
@@ -263,7 +288,7 @@ console.log(response);
                 </div>
               </div>
 
-              {/* Only show organ picker if they said YES */}
+              {}
               {form.isOrganDonor && (
                 <div className="field">
                   <label>Which organs are you willing to donate?</label>
@@ -287,7 +312,7 @@ console.log(response);
             </div>
           )}
 
-          {/* ── STEP 3: Location ── */}
+          {}
           {step === 3 && (
             <div>
               <div className="field">
@@ -321,6 +346,22 @@ console.log(response);
                 />
               </div>
 
+              {}
+              <div className="field">
+                <label>📍 Precise Location (for Nearby Search)</label>
+                <button
+                  type="button"
+                  className={`blood-btn ${geoStatus === 'success' ? 'selected' : ''}`}
+                  onClick={detectLocation}
+                  style={{ width: '100%', padding: '12px', fontSize: '14px', cursor: 'pointer' }}
+                >
+                  {geoStatus === 'idle' && '📍 Detect My Location'}
+                  {geoStatus === 'detecting' && '⏳ Detecting...'}
+                  {geoStatus === 'success' && `✅ Location captured (${form.location.coordinates[1].toFixed(4)}, ${form.location.coordinates[0].toFixed(4)})`}
+                  {geoStatus === 'error' && '❌ Failed — please allow location access and retry'}
+                </button>
+              </div>
+
               <div className="info-box">
                 📍 Your location helps connect you with nearby donors or recipients during emergencies. It is kept secure and only shared with verified users.
               </div>
@@ -335,14 +376,14 @@ console.log(response);
               </button>
             )}
 
-            {/* Continue OR Submit on last step */}
+            {}
             <button
               className="btn-next"
               onClick={() => {
                 if (step < STEPS.length - 1) {
-                  setStep(step + 1);  // go to next step
+                  setStep(step + 1);  
                 } else {
-                  handleSubmit();      // last step → submit to backend
+                  handleSubmit();      
                 }
               }}
             >

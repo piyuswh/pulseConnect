@@ -1,8 +1,8 @@
-/* ===== GOOGLE FONTS ===== */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap');
 
-/* ===== ROOT VARIABLES ===== */
+
 
 :root {
     --red: #e63946;
@@ -19,7 +19,7 @@
 }
 
 
-/* ===== PAGE WRAPPER ===== */
+
 
 .profile-page {
     min-height: 100vh;
@@ -34,7 +34,7 @@
 }
 
 
-/* ===== GLOW ORBS (CSS-only animated background) ===== */
+
 
 .profile-page::before {
     content: '';
@@ -85,7 +85,7 @@
 }
 
 
-/* ===== ECG LINE — scrolling heartbeat at the bottom ===== */
+
 
 .ecg-container {
     position: fixed;
@@ -115,7 +115,7 @@
 }
 
 
-/* ===== FLOATING DOTS (decorative grid) ===== */
+
 
 .bg-dots {
     position: fixed;
@@ -127,7 +127,7 @@
 }
 
 
-/* ===== MAIN CARD ===== */
+
 
 .profile-card {
     background: var(--card);
@@ -142,7 +142,7 @@
 }
 
 
-/* ===== TOP RED HEADER ===== */
+
 
 .card-header {
     background: linear-gradient(135deg, #e63946, #c1121f);
@@ -176,7 +176,7 @@
 }
 
 
-/* ===== STEP DOTS ===== */
+
 
 .step-dots {
     display: flex;
@@ -198,14 +198,14 @@
 }
 
 
-/* ===== FORM BODY ===== */
+
 
 .card-body {
     padding: 32px;
 }
 
 
-/* ===== STEP LABEL ===== */
+
 
 .step-label {
     font-size: 11px;
@@ -217,7 +217,7 @@
 }
 
 
-/* ===== FORM FIELD ===== */
+
 
 .field {
     margin-bottom: 18px;
@@ -232,7 +232,7 @@
 }
 
 
-/* ===== INPUT / SELECT / TEXTAREA ===== */
+
 
 .field input,
 .field select,
@@ -263,7 +263,7 @@
 }
 
 
-/* Fix date/select arrow color on dark bg */
+
 
 .field input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(0.6);
@@ -276,7 +276,7 @@ select option {
 }
 
 
-/* ===== TWO COLUMN GRID ===== */
+
 
 .two-col {
     display: grid;
@@ -285,7 +285,7 @@ select option {
 }
 
 
-/* ===== BLOOD GROUP GRID ===== */
+
 
 .blood-grid {
     display: grid;
@@ -318,7 +318,7 @@ select option {
 }
 
 
-/* ===== TOGGLE BUTTONS ===== */
+
 
 .toggle-row {
     display: flex;
@@ -346,7 +346,7 @@ select option {
 }
 
 
-/* ===== ORGAN GRID ===== */
+
 
 .organ-grid {
     display: grid;
@@ -378,7 +378,7 @@ select option {
 }
 
 
-/* ===== INFO BOX ===== */
+
 
 .info-box {
     background: rgba(230, 57, 70, 0.07);
@@ -392,7 +392,7 @@ select option {
 }
 
 
-/* ===== BUTTON ROW ===== */
+
 
 .btn-row {
     display: flex;
@@ -439,7 +439,7 @@ select option {
 }
 
 
-/* ===== SUCCESS SCREEN ===== */
+
 
 .success-screen {
     text-align: center;

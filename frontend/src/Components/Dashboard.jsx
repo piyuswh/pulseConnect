@@ -12,8 +12,8 @@ async function getUsers() {
     id:    u._id || u.id,
     name:  u.fullName || u.name,
     email: u.email,
-    role:  u.role || "user",   // "user" or "donor"
-    type:  u.donorType || null, // "blood" | "organ" | "both"  (only for donors)
+    role:  u.role || "user",   
+    type:  u.donorType || null, 
     blood: u.bloodGroup || "—",
   }));
 }
@@ -33,7 +33,7 @@ export default function Dashboard() {
   const [users,   setUsers]   = useState([]);
   const [loading, setLoading] = useState(true);
   const [error,   setError]   = useState(null);
-  const [tab,     setTab]     = useState("users");   // "users" | "donors"
+  const [tab,     setTab]     = useState("users");   
   const [search,  setSearch]  = useState("");
   const [toasts,  setToasts]  = useState([]);
 
@@ -69,7 +69,7 @@ export default function Dashboard() {
   return (
     <div className="layout">
 
-      {/* ── SIDEBAR ── */}
+      {}
       <aside className="sidebar">
         <div className="brand">
           <div className="brand-icon">🩸</div>
@@ -84,7 +84,7 @@ export default function Dashboard() {
         </button>
       </aside>
 
-      {/* ── MAIN ── */}
+      {}
       <div className="main">
 
         <div className="topbar">

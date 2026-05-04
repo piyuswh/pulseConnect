@@ -1,11 +1,8 @@
-/* ================================
-   HomePage.css — PulseConnect
-   Clean White & Red Theme
-================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
 
-/* -- Colors -- */
+
 
 :root {
     --red: #e63946;
@@ -33,9 +30,7 @@ body {
 }
 
 
-/* ================================
-   NAVBAR
-================================ */
+
 
 .navbar {
     background: var(--white);
@@ -76,7 +71,7 @@ body {
 }
 
 
-/* Nav links */
+
 
 .nav-links {
     display: flex;
@@ -109,7 +104,7 @@ body {
 }
 
 
-/* Nav right buttons */
+
 
 .nav-btns {
     display: flex;
@@ -154,9 +149,7 @@ body {
 }
 
 
-/* ================================
-   HERO SECTION
-================================ */
+
 
 .hero {
     background: var(--white);
@@ -170,7 +163,7 @@ body {
 }
 
 
-/* Small red tag above heading */
+
 
 .hero-tag {
     display: inline-flex;
@@ -198,7 +191,7 @@ body {
 }
 
 
-/* Red highlight in heading */
+
 
 .hero h1 span {
     color: var(--red);
@@ -255,7 +248,7 @@ body {
 }
 
 
-/* Hero right side — big visual card */
+
 
 .hero-card {
     background: var(--red);
@@ -268,7 +261,7 @@ body {
 }
 
 
-/* Decorative circle inside hero card */
+
 
 .hero-card::before {
     content: '';
@@ -290,7 +283,7 @@ body {
 }
 
 
-/* Stats inside hero card */
+
 
 .hero-card-stats {
     display: grid;
@@ -319,9 +312,7 @@ body {
 }
 
 
-/* ================================
-   HOW IT WORKS SECTION
-================================ */
+
 
 .section {
     padding: 70px 60px;
@@ -359,7 +350,7 @@ body {
 }
 
 
-/* 3 step cards */
+
 
 .steps {
     display: grid;
@@ -410,9 +401,7 @@ body {
 }
 
 
-/* ================================
-   STATS BAND (full-width red strip)
-================================ */
+
 
 .stats-band {
     background: var(--red);
@@ -437,9 +426,7 @@ body {
 }
 
 
-/* ================================
-   FOOTER
-================================ */
+
 
 .footer {
     background: var(--text);

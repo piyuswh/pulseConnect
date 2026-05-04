@@ -1,12 +1,9 @@
-/* =============================================
-   Chat.css — Premium Secure Chat UI
-   Dark glassmorphism theme with crimson accents
-   ============================================= */
 
-/* ── Google Font ── */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ── Page Layout ── */
+
 .chat-page {
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
@@ -27,7 +24,7 @@
     gap: 16px;
 }
 
-/* ── Chat Header Bar ── */
+
 .chat-header-bar {
     height: 64px;
     background: rgba(15, 15, 30, 0.95);
@@ -80,9 +77,7 @@
     50% { opacity: 0.4; }
 }
 
-/* =============================================
-   LEFT SIDEBAR — User/Conversation List
-   ============================================= */
+
 .chat-sidebar {
     width: 340px;
     min-width: 300px;
@@ -128,7 +123,7 @@
     color: rgba(255, 255, 255, 0.3);
 }
 
-/* ── Tabs ── */
+
 .sidebar-tabs {
     display: flex;
     padding: 0 16px;
@@ -160,7 +155,7 @@
     border-bottom-color: #dc2626;
 }
 
-/* ── User / Conversation List ── */
+
 .sidebar-list {
     flex: 1;
     overflow-y: auto;
@@ -270,9 +265,7 @@
     flex-shrink: 0;
 }
 
-/* =============================================
-   RIGHT PANEL — Message Area
-   ============================================= */
+
 .chat-main {
     flex: 1;
     background: rgba(20, 20, 40, 0.4);
@@ -284,7 +277,7 @@
     backdrop-filter: blur(20px);
 }
 
-/* ── No chat selected state ── */
+
 .no-chat {
     flex: 1;
     display: flex;
@@ -311,7 +304,7 @@
     margin: 0;
 }
 
-/* ── Chat header (name of person you're chatting with) ── */
+
 .chat-top-bar {
     padding: 16px 24px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -371,7 +364,7 @@
     gap: 5px;
 }
 
-/* ── Messages Area ── */
+
 .messages-area {
     flex: 1;
     overflow-y: auto;
@@ -390,7 +383,7 @@
     border-radius: 4px;
 }
 
-/* ── Message Bubble ── */
+
 .message-row {
     display: flex;
     animation: fadeInMsg 0.3s ease;
@@ -442,7 +435,7 @@
     text-align: right;
 }
 
-/* ── Typing indicator ── */
+
 .typing-indicator {
     display: flex;
     align-items: center;
@@ -468,7 +461,7 @@
     30% { transform: translateY(-6px); }
 }
 
-/* ── Date separator ── */
+
 .date-separator {
     text-align: center;
     font-size: 11px;
@@ -490,7 +483,7 @@
 .date-separator::before { left: 0; }
 .date-separator::after { right: 0; }
 
-/* ── Message Input ── */
+
 .message-input-bar {
     padding: 16px 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -552,7 +545,7 @@
     box-shadow: none;
 }
 
-/* ── Empty state in sidebar ── */
+
 .sidebar-empty {
     text-align: center;
     padding: 40px 20px;
@@ -566,7 +559,7 @@
     opacity: 0.4;
 }
 
-/* ── Loading state ── */
+
 .chat-loading {
     display: flex;
     align-items: center;
@@ -592,9 +585,7 @@
     to { transform: rotate(360deg); }
 }
 
-/* =============================================
-   RESPONSIVE
-   ============================================= */
+
 @media (max-width: 768px) {
     .chat-container {
         padding: 8px;
@@ -628,9 +619,7 @@
     }
 }
 
-/* =============================================
-   FIND DONORS — Filter Panel
-   ============================================= */
+
 .find-panel {
     padding: 4px;
 }
@@ -699,7 +688,7 @@
     transform: translateY(-1px);
 }
 
-/* ── Connect button in donor row ── */
+
 .connect-btn {
     padding: 6px 12px;
     border-radius: 8px;
@@ -718,9 +707,7 @@
     background: rgba(220, 38, 38, 0.25);
 }
 
-/* =============================================
-   CONNECTION REQUEST CARDS
-   ============================================= */
+
 .requests-panel {
     padding: 4px;
 }
@@ -808,7 +795,7 @@
     background: rgba(239, 68, 68, 0.2);
 }
 
-/* ── Status badges ── */
+
 .status-badge {
     font-size: 10px;
     font-weight: 600;
@@ -833,7 +820,7 @@
     color: #f87171;
 }
 
-/* ── Tab badge (notification count) ── */
+
 .tab-badge {
     display: inline-flex;
     align-items: center;
@@ -849,9 +836,7 @@
     padding: 0 5px;
 }
 
-/* =============================================
-   INTRO MESSAGE MODAL
-   ============================================= */
+
 .intro-modal-overlay {
     position: fixed;
     inset: 0;
@@ -961,9 +946,7 @@
     cursor: not-allowed;
 }
 
-/* =============================================
-   PROFILE MODAL
-   ============================================= */
+
 .profile-view-btn {
     padding: 6px 14px;
     border-radius: 8px;

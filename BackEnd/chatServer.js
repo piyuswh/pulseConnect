@@ -53,7 +53,7 @@ app.get("/chat/users", chatAuth, async (req, res) => {
     try {
         const users = await User.find({
             isVerified: true,
-            _id: { $ne: req.user.id } // exclude self
+            _id: { $ne: req.user.id } 
         }).select("fullName email bloodGroup role city organsDonating isOrganDonor _id");
         return res.json({ success: true, users });
     } catch (err) {
@@ -169,7 +169,7 @@ app.put("/chat/request/:id/accept", chatAuth, async (req, res) => {
             .populate("sender", "fullName email bloodGroup role city")
             .populate("receiver", "fullName email bloodGroup role city");
 
-        // Notify sender via socket
+        
         const senderSocket = onlineUsers.get(request.sender.toString());
         if (senderSocket) {
             io.to(senderSocket).emit("requestAccepted", populated);
