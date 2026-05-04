@@ -21,7 +21,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(",") : ["http://localhost:5173"],
     credentials: true
 }));
 
@@ -53,7 +53,7 @@ app.get("/chat/users", chatAuth, async (req, res) => {
     try {
         const users = await User.find({
             isVerified: true,
-            _id: { $ne: req.user.id } // exclude self
+            _id: { $ne: req.user.id } 
         }).select("fullName email bloodGroup role city organsDonating isOrganDonor _id");
         return res.json({ success: true, users });
     } catch (err) {
@@ -169,7 +169,7 @@ app.put("/chat/request/:id/accept", chatAuth, async (req, res) => {
             .populate("sender", "fullName email bloodGroup role city")
             .populate("receiver", "fullName email bloodGroup role city");
 
-        // Notify sender via socket
+        
         const senderSocket = onlineUsers.get(request.sender.toString());
         if (senderSocket) {
             io.to(senderSocket).emit("requestAccepted", populated);
@@ -305,7 +305,7 @@ app.get("/chat/messages/:conversationId", chatAuth, async (req, res) => {
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(",") : ["http://localhost:5173"],
         credentials: true
     }
 });

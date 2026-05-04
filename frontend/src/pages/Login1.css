@@ -1,4 +1,4 @@
-/* Background */
+
 
 .auth-page {
     height: 100vh;
@@ -12,7 +12,7 @@
 }
 
 
-/* floating gradient animation */
+
 
 @keyframes gradientMove {
     0% {
@@ -27,7 +27,7 @@
 }
 
 
-/* Glass Card */
+
 
 .auth-card {
     width: 350px;
@@ -41,7 +41,7 @@
 }
 
 
-/* Title */
+
 
 .title {
     text-align: center;
@@ -55,7 +55,7 @@
 }
 
 
-/* Input group */
+
 
 .input-group {
     position: relative;
@@ -75,7 +75,7 @@
 }
 
 
-/* floating label */
+
 
 .input-group label {
     position: absolute;
@@ -100,7 +100,7 @@
 }
 
 
-/* forgot */
+
 
 .row {
     display: flex;
@@ -120,7 +120,7 @@
 }
 
 
-/* Button */
+
 
 .login-btn {
     width: 100%;

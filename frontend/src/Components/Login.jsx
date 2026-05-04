@@ -12,7 +12,7 @@ export default function Login() {
   async function subHandler(e){
     e.preventDefault()
     try{
-     const res=await axios.post("http://localhost:8800/pulseConnect-register",formData,{withCredentials:true})
+     const res=await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:8800"}/pulseConnect-register`,formData,{withCredentials:true})
       if(res.data.success){
         return navigate('/complete-profile')
       }

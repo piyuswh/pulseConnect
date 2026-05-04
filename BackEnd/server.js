@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(",") : ["http://localhost:5173"],
     credentials: true
 }));
 
@@ -24,6 +24,7 @@ const protectRoute = require('./routes/protected.js')
 const unverifiedRoute = require('./routes/admin/VerifyUsers.js')
 const AccpetRoute = require('./routes/admin/AcceptUsers.js')
 const trustRoute = require('./routes/users/trustuser.js')
+const nearbyDonorRoute = require('./routes/users/nearbyDonors.js')
 app.use('/pulseConnect-register', registerRoute)
 app.use('/pulseConnect-Login', loginRoute)
 app.use('/pulseConnect-userDetails', authMiddleware, profileRoute)
@@ -31,6 +32,7 @@ app.use('/verify-user', protectRoute)
 app.use('/admin/unverified-users', unverifiedRoute)
 app.use('/admin/accept-user', AccpetRoute)
 app.use('/users/verified-users', trustRoute)
+app.use('/users/nearby-donors', authMiddleware, nearbyDonorRoute)
 
 app.listen(8800, () => {
     console.log("Server is Running on port 5000")

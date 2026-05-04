@@ -1,11 +1,8 @@
-/* ===================================================
-   Navbar1.css — PulseConnect Global Navigation Bar
-   Matches the project's red & white theme
-=================================================== */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
 
-/* ── Navbar container ── */
+
 
 .pc-navbar {
     position: sticky;
@@ -29,7 +26,7 @@
 }
 
 
-/* ── Brand: logo icon + text ── */
+
 
 .pc-brand {
     display: flex;
@@ -70,7 +67,7 @@
 }
 
 
-/* ── Navigation links ── */
+
 
 .pc-nav-links {
     display: flex;
@@ -98,7 +95,7 @@
     transform: translateY(-1px);
 }
 
-/* Active-ish underline animation on hover */
+
 .pc-nav-link::after {
     content: '';
     position: absolute;
@@ -117,7 +114,7 @@
 }
 
 
-/* Chat link — special accent styling */
+
 
 .pc-nav-link--chat {
     color: #ffffff;
@@ -138,7 +135,51 @@
 }
 
 
-/* ── Responsive tweaks ── */
+
+
+.pc-nav-link--donors {
+    color: #e63946;
+    background: #fff0f1;
+    font-weight: 600;
+    border: 1.5px solid rgba(230, 57, 70, 0.2);
+}
+
+.pc-nav-link--donors:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #e63946, #c1121f);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(230, 57, 70, 0.3);
+}
+
+.pc-nav-link--donors::after {
+    display: none;
+}
+
+
+
+
+.pc-nav-link--profile {
+    color: #7c3aed;
+    background: #f5f3ff;
+    font-weight: 600;
+    border: 1.5px solid rgba(124, 58, 237, 0.2);
+}
+
+.pc-nav-link--profile:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+}
+
+.pc-nav-link--profile::after {
+    display: none;
+}
+
+
+
 
 @media (max-width: 768px) {
     .pc-navbar-inner {

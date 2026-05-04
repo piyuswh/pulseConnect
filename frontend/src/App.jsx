@@ -10,6 +10,8 @@ import Dashboard from "./Components/Dashboard";
 import AdminDashboard from "./Components/AdminDashboard";
 import Protected from "./Components/Protected";
 import ChatPage from "./Components/ChatPage";
+import NearbyDonors from "./Components/NearbyDonors";
+import MyProfile from "./Components/MyProfile";
 
 export default function App() {
   return (
@@ -38,6 +40,16 @@ export default function App() {
         <Route path='/chat' element={
           <Protected>
             <ChatPage />
+          </Protected>
+        } />
+        <Route path='/nearby-donors' element={
+          <Protected>
+            <NearbyDonors />
+          </Protected>
+        } />
+        <Route path='/my-profile' element={
+          <Protected>
+            <MyProfile />
           </Protected>
         } />
         

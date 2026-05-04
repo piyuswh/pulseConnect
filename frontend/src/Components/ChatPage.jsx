@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "../pages/Chat.css";
 
-const CHAT_API = "http://localhost:8801";
+const CHAT_API = import.meta.env.VITE_CHAT_URL || "http://localhost:8801";
 const COLORS = ["#dc2626", "#9333ea", "#2563eb", "#059669", "#d97706", "#e11d48", "#7c3aed"];
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const ORGANS = ["Kidney", "Liver", "Heart", "Lungs", "Pancreas", "Eyes"];
@@ -31,14 +31,14 @@ export default function ChatPage() {
 
     const [me, setMe] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [sidebarTab, setSidebarTab] = useState("find"); // "find" | "requests" | "chats"
+    const [sidebarTab, setSidebarTab] = useState("find"); 
 
     const [filterBlood, setFilterBlood] = useState("");
     const [filterOrgan, setFilterOrgan] = useState("");
     const [matchingDonors, setMatchingDonors] = useState([]);
     const [donorsLoading, setDonorsLoading] = useState(false);
     const [introMsg, setIntroMsg] = useState("");
-    const [showIntroModal, setShowIntroModal] = useState(null); // userId or null
+    const [showIntroModal, setShowIntroModal] = useState(null); 
     const [requestSending, setRequestSending] = useState(false);
 
     const [incomingRequests, setIncomingRequests] = useState([]);
@@ -52,7 +52,7 @@ export default function ChatPage() {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const [isTyping, setIsTyping] = useState(false);
     const [mobileChat, setMobileChat] = useState(false);
-    const [showProfile, setShowProfile] = useState(null); // profile data or null
+    const [showProfile, setShowProfile] = useState(null); 
     const [profileLoading, setProfileLoading] = useState(false);
 
     const socketRef = useRef(null);
@@ -147,7 +147,7 @@ export default function ChatPage() {
             setShowIntroModal(null);
             setIntroMsg("");
             loadRequests();
-            // Remove from matching donors list
+            
             setMatchingDonors(prev => prev.filter(d => d._id !== receiverId));
         } catch (err) {
             alert(err.response?.data?.message || "Failed to send request");
@@ -278,7 +278,7 @@ export default function ChatPage() {
 
     return (
         <div className="chat-page">
-            {/* ── HEADER BAR ── */}
+            {}
             <div className="chat-header-bar">
                 <div className="logo-icon">💬</div>
                 <span className="logo-text">PulseConnect Chat</span>
@@ -288,16 +288,16 @@ export default function ChatPage() {
                 </div>
             </div>
 
-            {/* ── MAIN CONTAINER ── */}
+            {}
             <div className="chat-container">
 
-                {/* ══════════ LEFT SIDEBAR ══════════ */}
+                {}
                 <div className={`chat-sidebar ${mobileChat ? "hidden" : ""}`}>
                     <div className="sidebar-header">
                         <h2>💬 PulseConnect</h2>
                     </div>
 
-                    {/* Tabs */}
+                    {}
                     <div className="sidebar-tabs">
                         <button className={`sidebar-tab ${sidebarTab === "find" ? "active" : ""}`}
                             onClick={() => setSidebarTab("find")}>
@@ -315,7 +315,7 @@ export default function ChatPage() {
 
                     <div className="sidebar-list">
 
-                        {/* ──── FIND DONORS TAB ──── */}
+                        {}
                         {sidebarTab === "find" && (
                             <div className="find-panel">
                                 <div className="filter-section">
@@ -378,7 +378,7 @@ export default function ChatPage() {
                                     </div>
                                 ))}
 
-                                {/* Intro message modal */}
+                                {}
                                 {showIntroModal && (
                                     <div className="intro-modal-overlay" onClick={() => setShowIntroModal(null)}>
                                         <div className="intro-modal" onClick={e => e.stopPropagation()}>
@@ -406,10 +406,10 @@ export default function ChatPage() {
                             </div>
                         )}
 
-                        {/* ──── REQUESTS TAB ──── */}
+                        {}
                         {sidebarTab === "requests" && (
                             <div className="requests-panel">
-                                {/* Incoming requests */}
+                                {}
                                 {pendingIncoming.length > 0 && (
                                     <>
                                         <div className="requests-section-title">📥 Incoming Requests</div>
@@ -436,7 +436,7 @@ export default function ChatPage() {
                                     </>
                                 )}
 
-                                {/* Outgoing requests */}
+                                {}
                                 {outgoingRequests.length > 0 && (
                                     <>
                                         <div className="requests-section-title">📤 Sent Requests</div>
@@ -473,7 +473,7 @@ export default function ChatPage() {
                             </div>
                         )}
 
-                        {/* ──── CHATS TAB ──── */}
+                        {}
                         {sidebarTab === "chats" && (
                             conversations.length === 0 ? (
                                 <div className="sidebar-empty">
@@ -505,7 +505,7 @@ export default function ChatPage() {
                     </div>
                 </div>
 
-                {/* ══════════ RIGHT — CHAT AREA ══════════ */}
+                {}
                 <div className={`chat-main ${!activeConv && mobileChat ? "hidden" : ""}`}>
                     {!activeConv ? (
                         <div className="no-chat">
@@ -561,7 +561,7 @@ export default function ChatPage() {
                 </div>
             </div>
 
-            {/* ══════════ PROFILE MODAL ══════════ */}
+            {}
             {showProfile && (
                 <div className="intro-modal-overlay" onClick={() => setShowProfile(null)}>
                     <div className="profile-modal" onClick={e => e.stopPropagation()}>

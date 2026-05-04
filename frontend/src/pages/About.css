@@ -1,7 +1,4 @@
-/* ================================
-   AboutPage.css — PulseConnect
-   Shares same theme as HomePage
-================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
 :root {
@@ -30,7 +27,7 @@ body {
 }
 
 
-/* reuse same navbar styles */
+
 
 .navbar {
     background: var(--white);
@@ -142,9 +139,7 @@ body {
 }
 
 
-/* ================================
-   ABOUT HERO (top banner)
-================================ */
+
 
 .about-hero {
     background: var(--red);
@@ -156,7 +151,7 @@ body {
 }
 
 
-/* Decorative background circles */
+
 
 .about-hero::before {
     content: '';
@@ -213,9 +208,7 @@ body {
 }
 
 
-/* ================================
-   CONTENT WRAPPER
-================================ */
+
 
 .about-page {
     max-width: 1000px;
@@ -224,7 +217,7 @@ body {
 }
 
 
-/* Section tag (small red label) */
+
 
 .section-tag {
     display: inline-block;
@@ -255,10 +248,7 @@ body {
 }
 
 
-/* ================================
-   MISSION SECTION
-   (text on left, red card on right)
-================================ */
+
 
 .mission {
     display: grid;
@@ -269,7 +259,7 @@ body {
 }
 
 
-/* Red mission card */
+
 
 .mission-card {
     background: var(--red);
@@ -292,9 +282,7 @@ body {
 }
 
 
-/* ================================
-   VALUES — 3 cards
-================================ */
+
 
 .values {
     margin-bottom: 70px;
@@ -340,9 +328,7 @@ body {
 }
 
 
-/* ================================
-   TEAM — 3 member cards
-================================ */
+
 
 .team {
     margin-bottom: 70px;
@@ -405,9 +391,7 @@ body {
 }
 
 
-/* ================================
-   CTA STRIP (bottom banner)
-================================ */
+
 
 .cta-strip {
     background: var(--text);
@@ -451,9 +435,7 @@ body {
 }
 
 
-/* ================================
-   FOOTER
-================================ */
+
 
 .footer {
     background: var(--text);

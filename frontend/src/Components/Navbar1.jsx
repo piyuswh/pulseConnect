@@ -10,13 +10,13 @@ export default function Navbar1() {
     <nav className="pc-navbar">
       <div className="pc-navbar-inner">
 
-        {/* ── Brand ── */}
+        {}
         <Link to="/home" className="pc-brand">
           <div className="pc-brand-icon">🩸</div>
           <span className="pc-brand-text">PulseConnect</span>
         </Link>
 
-        {/* ── Nav Links ── */}
+        {}
         <div className="pc-nav-links">
           {pathname !== '/home' && (
             <Link className="pc-nav-link" to="/home">Home</Link>
@@ -30,8 +30,14 @@ export default function Navbar1() {
           {pathname !== '/about' && (
             <Link className="pc-nav-link" to="/about">About</Link>
           )}
-          {(pathname === '/user-DashBoard' || pathname === '/Complete-profile' || pathname === '/chat') && (
-            <Link className="pc-nav-link pc-nav-link--chat" to="/chat">💬 Chat</Link>
+          {(pathname === '/user-DashBoard' || pathname === '/Complete-profile' || pathname === '/chat' || pathname === '/nearby-donors' || pathname === '/my-profile') && (
+            <Link className="pc-nav-link pc-nav-link--donors" to="/nearby-donors"> Nearby Donors</Link>
+          )}
+          {(pathname === '/user-DashBoard' || pathname === '/Complete-profile' || pathname === '/chat' || pathname === '/nearby-donors' || pathname === '/my-profile') && (
+            <Link className="pc-nav-link pc-nav-link--chat" to="/chat">Chat</Link>
+          )}
+          {(pathname === '/user-DashBoard' || pathname === '/Complete-profile' || pathname === '/chat' || pathname === '/nearby-donors' || pathname === '/my-profile') && (
+            <Link className="pc-nav-link pc-nav-link--profile" to="/my-profile"> My Profile</Link>
           )}
         </div>
 

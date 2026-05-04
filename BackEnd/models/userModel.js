@@ -61,6 +61,19 @@ const userSchema = new mongoose.Schema({
     city: String,
     pincode: String,
 
+    
+    location: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            default: 'Point'
+        },
+        coordinates: {
+            type: [Number],   
+            default: [0, 0]
+        }
+    },
+
     age: {
         type: Number,
         min: 18
@@ -80,5 +93,8 @@ const userSchema = new mongoose.Schema({
     }
 
 }, { timestamps: true });
+
+
+userSchema.index({ location: '2dsphere' });
 
 module.exports = mongoose.model("User", userSchema);

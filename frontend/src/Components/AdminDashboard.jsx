@@ -12,7 +12,7 @@ export default function AdminDashboard() {
   
   async function fetchUsers() {
     try {
-      const res = await axios.get("http://localhost:8800/admin/unverified-users", {withCredentials:true});
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8800"}/admin/unverified-users`, {withCredentials:true});
       
       setUsers(res.data.users);
     } catch (err) {
