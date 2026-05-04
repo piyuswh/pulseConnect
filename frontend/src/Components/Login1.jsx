@@ -13,7 +13,7 @@ export default function Login1(){
     async function subHandler(e){
         e.preventDefault()
         try{
-        const res=await axios.post("http://localhost:8800/pulseConnect-Login",logData,{withCredentials:true})
+        const res=await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:8800"}/pulseConnect-Login`,logData,{withCredentials:true})
        if(res.data.success&&res.data.admin){
         return navigate('/admin-DashBoard')
        }

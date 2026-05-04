@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../pages/Dashboard.css";
 
-const API_URL = "http://localhost:8800";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8800";
 
 async function getUsers() {
   const res = await axios.get(`${API_URL}/users/verified-users`);

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../pages/NearbyDonors.css";
 
-const API = "http://localhost:8800";
+const API = import.meta.env.VITE_API_URL || "http://localhost:8800";
 const BLOOD_GROUPS = ["", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const COLORS = ["#e63946", "#4f8ef7", "#3ecf6e", "#f59e0b", "#9b5cf6", "#ec4899", "#14b8a6"];
 const RADIUS_OPTIONS = [

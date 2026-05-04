@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "../pages/Chat.css";
 
-const CHAT_API = "http://localhost:8801";
+const CHAT_API = import.meta.env.VITE_CHAT_URL || "http://localhost:8801";
 const COLORS = ["#dc2626", "#9333ea", "#2563eb", "#059669", "#d97706", "#e11d48", "#7c3aed"];
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const ORGANS = ["Kidney", "Liver", "Heart", "Lungs", "Pancreas", "Eyes"];
